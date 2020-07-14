@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1010,945" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1010,985" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="21">
       <x:String>System.Activities</x:String>
@@ -25,7 +25,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="15">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -41,6 +41,7 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="1020,780" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -60,9 +61,9 @@
           <av:PointCollection x:Key="ConnectorLocation">294,77.5 294,107.5 320,107.5 320,119.5</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <State x:Name="__ReferenceID4" DisplayName="Get Initial balance State " sap:VirtualizedContainerService.HintSize="422,960" sap2010:WorkflowViewState.IdRef="State_1">
+      <State x:Name="__ReferenceID4" DisplayName="Get Initial balance State " sap:VirtualizedContainerService.HintSize="422,880" sap2010:WorkflowViewState.IdRef="State_1">
         <State.Entry>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,573" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap:VirtualizedContainerService.HintSize="376,493" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -73,24 +74,50 @@
                 <OutArgument x:TypeArguments="x:String">[userInput]</OutArgument>
               </ui:InputDialog.Result>
             </ui:InputDialog>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Before the invocation:&quot; + valToBeChanged]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Before the invocation:&quot; + valToBeChanged]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
             <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InputValidation workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="InputValidation.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="userInput">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="userInput" />
-                </InArgument>
-                <InOutArgument x:TypeArguments="x:Boolean" x:Key="isInputValid">
-                  <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="isInputValid" />
-                </InOutArgument>
-                <OutArgument x:TypeArguments="x:Double" x:Key="parsedValue">
-                  <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="balance" />
-                </OutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="valToBeChanged">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="valToBeChanged" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="userInput">[userInput]</InArgument>
+                <InOutArgument x:TypeArguments="x:Boolean" x:Key="isInputValid">[isInputValid]</InOutArgument>
+                <OutArgument x:TypeArguments="x:Double" x:Key="parsedValue">[balance]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="valToBeChanged">[valToBeChanged]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;After the invocation:&quot; + valToBeChanged]" />
+            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+              <ui:CommentOut.Body>
+                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;After the invocation:&quot; + valToBeChanged]" />
+                </Sequence>
+              </ui:CommentOut.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:CommentOut>
           </Sequence>
         </State.Entry>
         <sap:WorkflowViewStateService.ViewState>
@@ -130,15 +157,9 @@
                     </ui:InputDialog>
                     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke InputValidation workflow" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="InputValidation.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="userInput">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="userInput" />
-                        </InArgument>
-                        <InOutArgument x:TypeArguments="x:Boolean" x:Key="isInputValid">
-                          <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="isInputValid" />
-                        </InOutArgument>
-                        <OutArgument x:TypeArguments="x:Double" x:Key="parsedValue">
-                          <mva:VisualBasicReference x:TypeArguments="x:Double" ExpressionText="amountToPay" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="userInput">[userInput]</InArgument>
+                        <InOutArgument x:TypeArguments="x:Boolean" x:Key="isInputValid">[isInputValid]</InOutArgument>
+                        <OutArgument x:TypeArguments="x:Double" x:Key="parsedValue">[amountToPay]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
@@ -384,18 +405,10 @@
       <StateMachine.Variables>
         <Variable x:TypeArguments="x:Double" Name="balance" />
         <Variable x:TypeArguments="x:String" Name="userInput" />
-        <Variable x:TypeArguments="x:Boolean" Name="isInputValid">
-          <Variable.Default>
-            <Literal x:TypeArguments="x:Boolean" Value="True" />
-          </Variable.Default>
-        </Variable>
+        <Variable x:TypeArguments="x:Boolean" Default="True" Name="isInputValid" />
         <Variable x:TypeArguments="x:Double" Name="amountToPay" />
         <Variable x:TypeArguments="x:String" Name="userAnswer" />
-        <Variable x:TypeArguments="x:String" Name="valToBeChanged">
-          <Variable.Default>
-            <Literal x:TypeArguments="x:String">Hello World!</Literal>
-          </Variable.Default>
-        </Variable>
+        <Variable x:TypeArguments="x:String" Default="Hello World!" Name="valToBeChanged" />
       </StateMachine.Variables>
     </StateMachine>
   </Sequence>
